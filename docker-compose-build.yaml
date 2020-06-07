@@ -1,0 +1,18 @@
+version: "3"
+services:
+  frontend:
+    build:
+      context: ./udagram-frontend
+    image: davictor/udagram-frontend:1.0.0
+  backend-api-feed:
+    build:
+      context: ./udagram-api-feed
+    image: davictor/udagram-api-feed:1.0.0
+  backend-api-user:
+    build:
+      context: ./udagram-api-user
+    image: davictor/udagram-api-user:1.0.0
+  reverse-proxy:
+    build:
+      context: ./reverse-proxy
+    image: davictor/udagram-reverse-proxy:1.0.0
