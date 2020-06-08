@@ -5,7 +5,6 @@ import { sequelize } from './sequelize';
 import { IndexRouter } from './controllers/v0/index.router';
 
 import bodyParser from 'body-parser';
-import { config } from './config/config';
 import { V0_USER_MODELS } from './controllers/v0/model.index';
 
 
@@ -14,7 +13,7 @@ import { V0_USER_MODELS } from './controllers/v0/model.index';
   await sequelize.sync();
 
   const app = express();
-  const port = process.env.PORT || 8080;
+  const port = 8080;
 
   app.use(bodyParser.json());
 
@@ -37,7 +36,7 @@ import { V0_USER_MODELS } from './controllers/v0/model.index';
 
   // Start the Server
   app.listen(port, () => {
-    console.log(`server running ${config.url}`);
-    console.log(`press CTRL+C to stop server`);
+    console.log(`User server running on port ${port}`);
+    console.log(`Press CTRL+C to stop server`);
   });
 })();
