@@ -2,29 +2,29 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: api-feed
-  name: api-feed
+    service: backend-api-feed
+  name: backend-api-feed
 spec:
   replicas: 2
   selector:
     matchLabels:
-      service: api-feed
+      service: backend-api-feed
   template:
     metadata:
       labels:
-        service: api-feed
+        service: backend-api-feed
     spec:
       containers:
-      - image: davictor/udagram-api-feed
+      - image: davictor/udagram-api-feed:1.0.0
         name: udagram-api-feed
         imagePullPolicy: Always
         resources:
           requests:
             memory: "64Mi"
-            cpu: "250m"
+            cpu: "200m"
           limits:
             memory: "1024Mi"
-            cpu: "500m"
+            cpu: "400m"
         env:
         - name: URL
           valueFrom:
@@ -75,8 +75,8 @@ spec:
         - name: aws-secret
           mountPath: "/root/.aws/"
           readOnly: true
-      restartPolicy: Always
       volumes:
-      - name: aws-secret
-        secret:
-          secretName: aws-secret
+        - name: aws-secret
+          secret:
+            secretName: aws-secret
+      restartPolicy: Always

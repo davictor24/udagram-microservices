@@ -5,7 +5,7 @@ metadata:
     service: reverse-proxy
   name: reverse-proxy
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       service: reverse-proxy
@@ -15,16 +15,16 @@ spec:
         service: reverse-proxy
     spec:
       containers:
-      - image: davictor/udagram-reverse-proxy
+      - image: davictor/udagram-reverse-proxy:1.0.0
         name: udagram-reverse-proxy
         imagePullPolicy: Always
         resources:
           requests:
             memory: "64Mi"
-            cpu: "250m"
+            cpu: "200m"
           limits:
             memory: "1024Mi"
-            cpu: "500m"
+            cpu: "400m"
         ports:
         - containerPort: 8080
-      restartPolicy: Always 
+      restartPolicy: Always
