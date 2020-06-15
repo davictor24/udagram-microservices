@@ -1,7 +1,7 @@
 version: "3"
 services:
   backend-api-user:
-    image: davictor/udagram-api-user:1.0.0
+    image: davictor/udagram-api-user:1.1.0
     environment:
       POSTGRES_USERNAME: $POSTGRES_USERNAME
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
@@ -9,7 +9,7 @@ services:
       POSTGRES_HOST: $POSTGRES_HOST
       JWT_SECRET: $JWT_SECRET
   backend-api-feed:
-    image: davictor/udagram-api-feed:1.0.0
+    image: davictor/udagram-api-feed:1.1.0
     volumes:
       - $HOME/.aws:/root/.aws
     environment:
@@ -22,11 +22,11 @@ services:
       AWS_BUCKET: $AWS_BUCKET
       JWT_SECRET: $JWT_SECRET
   frontend:
-    image: davictor/udagram-frontend:1.0.0
+    image: davictor/udagram-frontend:1.1.0
     ports:
       - "80:80"
   reverse-proxy:
-    image: davictor/udagram-reverse-proxy:1.0.0
+    image: davictor/udagram-reverse-proxy:1.1.0
     ports:
       - 8080:8080
     restart: always

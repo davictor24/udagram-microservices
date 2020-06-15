@@ -15,7 +15,7 @@ spec:
         service: backend-api-feed
     spec:
       containers:
-      - image: davictor/udagram-api-feed:1.0.0
+      - image: davictor/udagram-api-feed:1.1.0
         name: udagram-api-feed
         imagePullPolicy: Always
         resources:

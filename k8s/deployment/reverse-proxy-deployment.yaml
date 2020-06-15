@@ -15,7 +15,7 @@ spec:
         service: reverse-proxy
     spec:
       containers:
-      - image: davictor/udagram-reverse-proxy:1.0.0
+      - image: davictor/udagram-reverse-proxy:1.1.0
         name: udagram-reverse-proxy
         imagePullPolicy: Always
         resources:
